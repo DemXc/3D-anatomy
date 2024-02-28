@@ -4,14 +4,11 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
-def draw():
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-    glBegin(GL_POLYGON)
-    glVertex2f(-3, 3)
-    glVertex2f(3, 3)
-    glVertex2f(3, -3)
-    glVertex2f(-3, -3)
-    glEnd()
+vertices=((1,1),(1,-1),(-1,-1),(-1,1),
+          (1,1),(1,-1),(-1,-1),(-1,1))
+
+edge=((0,1),(1,2),(2,3),(3,0),
+      (4,5),(5,6),(6,7),(7,4))
 
 def main():
     pygame.init()
@@ -28,7 +25,6 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        draw()
         pygame.display.flip()
         clock.tick(60)
 
